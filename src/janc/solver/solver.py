@@ -112,7 +112,7 @@ def set_solver(thermo_set, boundary_set, source_set = None, nondim_set = None, s
 
         p1 = U[0:4,:,:]
         #p2 = jnp.concatenate([U[4:,:,:220],U[4:,:,220:] + drhoY],axis=2)
-        p2 = U[4:,:,:]
+        p2 = U[4:,:,:] + drhoY
         
         #p2 = jnp.clip(p2,min=0,max=p1[0])
         U_new = jnp.concatenate([p1,p2],axis=0)
